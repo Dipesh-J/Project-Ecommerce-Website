@@ -2,8 +2,15 @@ const express = require("express")
 const mongoose = require("mongoose")
 const route = require("./src/routes/route")
 const multer = require("multer");
+const cors = require("cors");
 
 const app = express()
+
+// Enable CORS for frontend
+app.use(cors({
+    origin: ['http://localhost:5173', 'http://localhost:3001'],
+    credentials: true
+}))
 
 app.use(express.json())
 
@@ -22,7 +29,7 @@ app.use((req, res) => {
 });
 
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
     console.log(`Express app is running on port ${PORT}`)
