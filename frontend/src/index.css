@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+/* Design Tokens as CSS Custom Properties */
+:root {
+  /* Colors */
+  --color-primary: #735F32;
+  --color-primary-variant: #C69749;
+  --color-bg-default: #000000;
+  --color-bg-surface: #282A3A;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.6);
+  --color-success: #735F32;
+  --color-warning: #C69749;
+  --color-error: #ff4444;
+  --color-white: #ffffff;
+  --color-light: rgba(255, 255, 255, 0.6);
+
+  /* Typography */
+  --font-family: 'Poppins', sans-serif;
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.95rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 5rem;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.4rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 5rem;
+  --spacing-5xl: 6rem;
+  --spacing-6xl: 8rem;
+
+  /* Border Radius */
+  --radius-sm: 0.4rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 2rem;
+  --radius-full: 50%;
+
+  /* Shadows */
+  --shadow-navbar: 0px 4px 8px rgba(0, 0, 0, 0.15);
+
+  /* Container */
+  --container-lg: 75%;
+  --container-md: 86%;
+  --container-sm: 90%;
+  --container-max: 1200px;
+
+  /* Transitions */
+  --transition-default: all 0.3s ease-in-out;
+  --transition-fast: all 0.2s ease-out;
+}
+
+/* Tailwind CSS v4 Theme Configuration */
+@theme {
+  /* Colors */
+  --color-primary: #735F32;
+  --color-primary-variant: #C69749;
+  --color-bg-default: #000000;
+  --color-bg-surface: #282A3A;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.6);
+  --color-success: #735F32;
+  --color-warning: #C69749;
+  --color-error: #ff4444;
+  --color-accent-white: #ffffff;
+  --color-accent-light: rgba(255, 255, 255, 0.6);
+
+  /* Font Family */
+  --font-family-sans: 'Poppins', sans-serif;
+
+  /* Font Sizes */
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.95rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-size-4xl: 5rem;
+
+  /* Line Height */
+  --line-height-normal: 1.7;
+
+  /* Border Radius */
+  --radius-sm: 0.4rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 2rem;
+  --radius-full: 50%;
+
+  /* Shadows */
+  --shadow-navbar: 0px 4px 8px rgba(0, 0, 0, 0.15);
+
+  /* Breakpoints */
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+}
+
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--color-bg-default);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-normal);
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-default);
+}
+
+a:hover {
+  color: var(--color-primary-variant);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Utility Classes */
+.container {
+  width: var(--container-sm);
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: var(--container-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: var(--container-lg);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-default);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-variant);
+}

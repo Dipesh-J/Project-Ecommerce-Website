@@ -109,7 +109,7 @@ let getproducts = async function (req, res) {
 
         }
 
-        const allProducts = await productModel.find(finalFilters).select({ _id: 0, __v: 0 }).sort({ price: 1 })
+        const allProducts = await productModel.find(finalFilters).select({ __v: 0 }).sort({ price: 1 })
 
         if (allProducts.length == 0) return res.status(404).send({ status: false, message: "Product not Found" })
 

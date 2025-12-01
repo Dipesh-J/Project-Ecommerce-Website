@@ -1,5 +1,151 @@
 # Project-Ecommerce-Website
 
+A full-stack e-commerce application with a Node.js/Express backend and React frontend.
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+ 
+- npm 9+
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Dipesh-J/Project-Ecommerce-Website.git
+cd Project-Ecommerce-Website
+
+# Install all dependencies (frontend + backend)
+npm install
+```
+
+### Running the Application
+
+```bash
+# Start both frontend and backend simultaneously
+npm run dev:all
+
+# Or run them separately:
+# Terminal 1 - Backend (http://localhost:3000)
+npm run dev:backend
+
+# Terminal 2 - Frontend (http://localhost:5173)
+npm run dev
+```
+
+### Build for Production
+
+```bash
+# Build frontend
+npm run build
+```
+
+---
+
+## 📁 Project Structure
+
+```
+/
+├── backend/               # Express.js API server
+│   ├── src/
+│   │   ├── controller/    # Route handlers
+│   │   ├── middleware/    # Auth middleware
+│   │   ├── model/         # Mongoose schemas
+│   │   ├── routes/        # API routes
+│   │   ├── validator/     # Input validation
+│   │   └── aws.js         # S3 upload helper
+│   ├── index.js           # Server entry point
+│   └── package.json
+│
+├── frontend/              # React + Vite application
+│   ├── src/
+│   │   ├── components/    # Reusable UI components
+│   │   ├── pages/         # Page components
+│   │   ├── services/      # API client
+│   │   ├── store/         # Zustand state management
+│   │   └── theme/         # Design tokens
+│   └── package.json
+│
+├── package.json           # Root workspace config
+└── README.md
+```
+
+---
+
+## 🎨 Design System
+
+The frontend uses a custom design system with the following tokens:
+
+| Token | Value |
+|-------|-------|
+| Primary Color | `#735F32` |
+| Primary Variant | `#C69749` |
+| Background | `#000000` |
+| Surface | `#282A3A` |
+| Text Primary | `#ffffff` |
+| Text Secondary | `rgba(255, 255, 255, 0.6)` |
+| Font Family | Poppins |
+
+---
+
+## 🔌 API Endpoints
+
+### User APIs
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/register` | Register new user | No |
+| POST | `/login` | User login | No |
+| GET | `/user/:userId/profile` | Get user profile | Yes |
+| PUT | `/user/:userId/profile` | Update user profile | Yes |
+
+### Product APIs
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/products` | Create product | No |
+| GET | `/products` | Get all products | No |
+| GET | `/products/:productId` | Get product by ID | No |
+| PUT | `/products/:productId` | Update product | No |
+| DELETE | `/products/:productId` | Delete product | No |
+
+### Cart APIs
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/users/:userId/cart` | Add to cart | Yes |
+| PUT | `/users/:userId/cart` | Update cart | Yes |
+| GET | `/users/:userId/cart` | Get cart | Yes |
+| DELETE | `/users/:userId/cart` | Clear cart | Yes |
+
+### Order APIs
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/users/:userId/orders` | Create order | Yes |
+| PUT | `/users/:userId/orders` | Update order status | Yes |
+
+---
+
+## 🚀 Deployment
+
+### Frontend (Vercel/Netlify)
+
+1. Connect your GitHub repository
+2. Set build settings:
+   - Build command: `npm run build`
+   - Output directory: `frontend/dist`
+3. Set environment variable:
+   - `VITE_API_URL`: Your backend URL
+
+### Backend (Render/Railway)
+
+1. Connect your GitHub repository
+2. Set root directory: `backend`
+3. Set environment variables:
+   - `PORT`: 3000
+   - `MONGODB_URI`: Your MongoDB connection string
+
+---
+
+## 📖 Original Backend Documentation
+
 ### Key points
 - In this project we will work feature wise. That means we pick one object like user, book, blog, etc at a time. We work through it's feature. The steps would be:
   1) We create it's model.
